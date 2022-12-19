@@ -34,3 +34,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal archives
+/_MODELO
+/components/AddressItem
+/components/Button
+/components/ButtonWithIcon
+/components/CartProductItem
+/components/InputField
+/components/Quantity
+/components/Sidebar
+/components/SidebarMenuItem
+/contexts/auth
+/libs/useFormatter.ts
+/libs/useApi.ts
+/types/Address.ts
+/types/CartCookie.ts
+/types/CartItem.ts
+/types/User.ts
+
