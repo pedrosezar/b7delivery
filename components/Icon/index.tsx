@@ -1,4 +1,3 @@
-/*
 import Card from "./card.svg";
 import Checked from "./checked.svg";
 import Cupom from "./cupom.svg";
@@ -33,4 +32,3 @@ export const Icon = ({ icon, color, width, height }: Props) => {
     </div>
   );
 };
-*/
