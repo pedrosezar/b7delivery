@@ -1,11 +1,12 @@
 import { GetServerSideProps } from "next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Banner } from "../../components/Banner";
 import { ProductItem } from "../../components/ProductItem";
 import { SearchInput } from "../../components/SearchInput";
 import { useAppContext } from "../../contexts/AppContext";
 import { createApi } from "../../libs/createApi";
 import styles from "../../styles/Home.module.css";
+import { Product } from "../../types/Product";
 import { Tenant } from "../../types/Tenant";
 
 const Home = (data: Props) => {
@@ -14,6 +15,8 @@ const Home = (data: Props) => {
   useEffect(() => {
     setTenant(data.tenant);
   }, []);
+
+  const [products, setProducts] = useState<Product[]>(data.products);
 
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
@@ -51,51 +54,9 @@ const Home = (data: Props) => {
       <Banner />
 
       <div className={styles.grid}>
-        <ProductItem
-          data={{
-            id: 1,
-            image: "/tmp/texas-burger.png",
-            categoryName: "Tradicional",
-            name: "Texas Buger",
-            price: "R$ 25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: 2,
-            image: "/tmp/texas-burger.png",
-            categoryName: "Tradicional",
-            name: "Texas Buger",
-            price: "R$ 25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: 3,
-            image: "/tmp/texas-burger.png",
-            categoryName: "Tradicional",
-            name: "Texas Buger",
-            price: "R$ 25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: 4,
-            image: "/tmp/texas-burger.png",
-            categoryName: "Tradicional",
-            name: "Texas Buger",
-            price: "R$ 25,50",
-          }}
-        />
-        <ProductItem
-          data={{
-            id: 5,
-            image: "/tmp/texas-burger.png",
-            categoryName: "Tradicional",
-            name: "Texas Buger",
-            price: "R$ 25,50",
-          }}
-        />
+        {products.map((item, index) => (
+          <ProductItem key={index} data={item} />
+        ))}
       </div>
     </div>
   );
@@ -105,21 +66,26 @@ export default Home;
 
 type Props = {
   tenant: Tenant;
+  products: Product[];
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;
-  const api = createApi();
+  const api = createApi(tenantSlug as string);
 
   // Get Tenant
-  const tenant = await api.getTenant(tenantSlug as string);
+  const tenant = await api.getTenant();
   if (!tenant) {
     return { redirect: { destination: "/", permanent: false } };
   }
 
+  // Get Products
+  const products = await api.getAllProducts();
+
   return {
     props: {
       tenant,
+      products,
     },
   };
 };

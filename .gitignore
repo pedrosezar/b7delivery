@@ -40,11 +40,9 @@ next-env.d.ts
 /components/AddressItem
 /components/ButtonWithIcon
 /components/CartProductItem
-/components/Quantity
 /components/Sidebar
 /components/SidebarMenuItem
 /contexts/auth
-/libs/useFormatter.ts
 /libs/useApi.ts
 /types/Address.ts
 /types/CartCookie.ts

@@ -1,7 +1,18 @@
+import { Product } from "../types/Product";
 import { Tenant } from "../types/Tenant";
 
-export const createApi = () => ({
-  getTenant: (tenantSlug: string): boolean | Tenant => {
+const TEMPORARYoneProduct: Product = {
+  id: 1,
+  image: "/tmp/texas-burger.png",
+  categoryName: "Tradicional",
+  name: "Texas Burger",
+  price: 25.5,
+  description:
+    "2 Blends de carne de 150g, Queijo Cheddar, Bacon Caramelizado, Salada, Molho da casa, Pão brioche artesanal",
+};
+
+export const createApi = (tenantSlug: string) => ({
+  getTenant: async () => {
     switch (tenantSlug) {
       case "b7burger":
         return {
@@ -22,5 +33,17 @@ export const createApi = () => ({
       default:
         return false;
     }
+  },
+
+  getAllProducts: async () => {
+    let products = [];
+    for (let q = 0; q < 10; q++) {
+      products.push(TEMPORARYoneProduct);
+    }
+    return products;
+  },
+
+  getProduct: async (id: string) => {
+    return TEMPORARYoneProduct;
   },
 });
