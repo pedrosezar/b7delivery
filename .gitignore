@@ -40,12 +40,7 @@ next-env.d.ts
 /components/AddressItem
 /components/ButtonWithIcon
 /components/CartProductItem
-/components/Sidebar
-/components/SidebarMenuItem
-/contexts/auth
-/libs/useApi.ts
 /types/Address.ts
 /types/CartCookie.ts
 /types/CartItem.ts
-/types/User.ts
 

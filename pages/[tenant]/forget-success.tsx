@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Icon } from "../../components/Icon";
-import { useAppContext } from "../../contexts/AppContext";
+import { useAppContext } from "../../contexts/app";
 import { createApi } from "../../libs/createApi";
 import styles from "../../styles/ForgetSuccess.module.css";
 import { Tenant } from "../../types/Tenant";
@@ -70,10 +70,10 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;
-  const api = createApi();
+  const api = createApi(tenantSlug as string);
 
   // Get Tenant
-  const tenant = await api.getTenant(tenantSlug as string);
+  const tenant = await api.getTenant();
   if (!tenant) {
     return { redirect: { destination: "/", permanent: false } };
   }

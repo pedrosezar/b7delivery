@@ -1,4 +1,3 @@
-/*
 import { DataType, ActionType, Actions } from "./types";
 
 export const reducer = (state: DataType, action: ActionType) => {
@@ -10,4 +9,3 @@ export const reducer = (state: DataType, action: ActionType) => {
       return state;
   }
 };
-*/

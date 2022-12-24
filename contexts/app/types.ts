@@ -1,4 +1,3 @@
-/*
 import { Dispatch, ReactNode } from "react";
 import { Tenant } from "../../types/Tenant";
 
@@ -23,4 +22,3 @@ export type ProviderType = {
 export enum Actions {
   SET_TENANT,
 }
-*/

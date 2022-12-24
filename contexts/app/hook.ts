@@ -1,4 +1,3 @@
-/*
 import { useContext } from "react";
 import { AppContext } from ".";
 import { Tenant } from "../../types/Tenant";
@@ -17,4 +16,3 @@ export const useAppContext = () => {
     },
   };
 };
-*/
