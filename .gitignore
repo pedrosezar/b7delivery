@@ -39,8 +39,5 @@ next-env.d.ts
 /_MODELO
 /components/AddressItem
 /components/ButtonWithIcon
-/components/CartProductItem
 /types/Address.ts
-/types/CartCookie.ts
-/types/CartItem.ts
 

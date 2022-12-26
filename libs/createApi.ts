@@ -39,13 +39,16 @@ export const createApi = (tenantSlug: string) => ({
   getAllProducts: async () => {
     let products = [];
     for (let q = 0; q < 10; q++) {
-      products.push(TEMPORARYoneProduct);
+      products.push({
+        ...TEMPORARYoneProduct,
+        id: q + 1,
+      });
     }
     return products;
   },
 
-  getProduct: async (id: string) => {
-    return TEMPORARYoneProduct;
+  getProduct: async (id: number) => {
+    return { ...TEMPORARYoneProduct, id };
   },
 
   authorizeToken: async (token: string): Promise<User | false> => {
@@ -55,5 +58,24 @@ export const createApi = (tenantSlug: string) => ({
       name: "Pedro Sézar",
       email: "pedrosezar@gmail.com",
     };
+  },
+
+  getCartProducts: async (cartCookie: string) => {
+    let cart: CartItem[] = [];
+    if (!cartCookie) return cart;
+    const cartJson = JSON.parse(cartCookie);
+    for (let i in cartJson) {
+      if (cartJson[i].id && cartJson[i].qtde) {
+        const product = {
+          ...TEMPORARYoneProduct,
+          id: cartJson[i].id,
+        };
+        cart.push({
+          qtde: cartJson[i].qtde,
+          product,
+        });
+      }
+    }
+    return cart;
   },
 });
