@@ -1,0 +1,71 @@
+.container {
+  background-color: #fff;
+  padding: 50px 24px;
+}
+.infoGroup {
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+  margin-bottom: 40px;
+}
+.infoArea {
+  padding-top: 24px;
+}
+.infoArea .infoTitle {
+  font-weight: 400;
+  font-size: 16px;
+  color: #1b1b1b;
+  margin-bottom: 8px;
+}
+.paymentTypes {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.paymentTypes .paymentBtn {
+  flex: 1;
+}
+
+.productsQuantity {
+  border-top: 1.5px solid rgba(27, 27, 27, 0.1);
+  border-bottom: 1.5px solid rgba(27, 27, 27, 0.1);
+  padding: 19px 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1b1b1b;
+}
+.cupomInput {
+  display: flex;
+  gap: 14px;
+}
+.resumeArea {
+  background-color: #f9f9fb;
+  border-radius: 8px;
+  margin-top: 40px;
+  padding: 48px 32px;
+}
+.resumeItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.resumeLeft {
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+.resumeRight {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+.resumeLine {
+  border-top: 1px dashed #96a3ab;
+  margin-bottom: 29px;
+}
+.resumeRightBig {
+  font-weight: 600;
+  font-size: 24px;
+  color: #000;
+}
+.resumeButton {
+  margin-top: 40px;
+}
