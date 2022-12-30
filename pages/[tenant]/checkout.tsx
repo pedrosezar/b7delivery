@@ -16,11 +16,10 @@ import { CartItem } from "../../types/CartItem";
 import { useRouter } from "next/router";
 import { CartProductItem } from "../../components/CartProductItem";
 import { ButtonWithIcon } from "../../components/ButtonWithIcon";
-import { Address } from "../../types/Address";
 
 const Checkout = (data: Props) => {
   const { setToken, setUser } = useAuthContext();
-  const { tenant, setTenant } = useAppContext();
+  const { tenant, setTenant, shippingAddress, shippingPrice } = useAppContext();
 
   useEffect(() => {
     setTenant(data.tenant);
@@ -35,20 +34,8 @@ const Checkout = (data: Props) => {
   const [cart, setCart] = useState<CartItem[]>(data.cart);
 
   // Shipping
-  const [shippingPrice, setShippingPrice] = useState(0);
-  const [shippingAddress, setShippingAddress] = useState<Address>();
   const handleChangeAddress = () => {
-    //    router.push(`/${data.tenant.slug}/myaddresses`);
-    setShippingAddress({
-      id: 1,
-      cep: "12345-123",
-      street: "Rua das Flores",
-      number: "321",
-      neighborhood: "Jardins das Flores",
-      city: "Campina Pequena",
-      state: "PB",
-    });
-    setShippingPrice(9.5);
+    router.push(`/${data.tenant.slug}/myaddresses`);
   };
 
   // Payments
